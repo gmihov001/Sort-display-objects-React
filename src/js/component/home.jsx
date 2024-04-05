@@ -51,8 +51,8 @@ const Home = () => {
 					</button>
 					<ul className="dropdown-menu">
 						<li><a className="dropdown-item" onClick={() => setSortMe(() => sortTitles)} href="#">By title</a></li>
-						<li><a className="dropdown-item" onClick={() => setSortMe(() => sortStatuses)} href="#">By date</a></li>
-						<li><a className="dropdown-item" href="#">By status</a></li>
+						<li><a className="dropdown-item" href="#">By date</a></li>
+						<li><a className="dropdown-item" onClick={() => setSortMe(() => sortStatuses)} href="#">By status</a></li>
 					</ul>
 				</div>
 			</div>
