@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-//create your first component
+
 const Home = () => {
 	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState("");
@@ -66,7 +66,7 @@ const Home = () => {
 						aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
 				</div>
 				<div className="dropdown">
-					<button className="btn btn-outline-info dropdown-toggle px-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<button className="btn btn-info dropdown-toggle px-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Sort
 					</button>
 					<ul className="dropdown-menu">
@@ -81,14 +81,18 @@ const Home = () => {
 				{
 					tasks.toSorted(sortMe).map((task, ind) => (
 						<div key={ind} className="alert alert-info shadow p-3 m-2 bg-body rounded d-flex justify-content-between" role="alert">
-							<strong>{task.title}</strong> <small>{task.date.toString()}</small>
+							<strong style={task.done ? { textDecoration: "line-through", color: "gray" } : { textDecoration: "none", color: "inherit" }}>{task.title}</strong> <small>{task.date.toString()}</small>
 							<div className="d-flex">
 								<span
 									onClick={() => markDone(task.id)}
-									className="input-group-text"><i className="far fa-check-square"></i></span>
+									className="mx-2"
+									style={{ color: task.done ? "gray" : "inherit" }}
+								>
+									<i className="far fa-check-square"></i>
+								</span>
 								<span
 									onClick={() => deleteTask(task.id)}
-									className="input-group-text"><i className="far fa-times-circle"></i></span>
+									className="mx-2"><i className="far fa-times-circle"></i></span>
 							</div>
 						</div>
 					))
